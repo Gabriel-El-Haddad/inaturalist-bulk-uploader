@@ -32,22 +32,7 @@ git clone https://github.com/yourusername/inat-bulk-uploader.git
 cd inat-bulk-uploader
 ```
 
-### 2. Set up a virtual environment
-
-```
-python -m venv venv
-source venv/bin/activate    # macOS/Linux
-# OR
-venv\Scripts\activate       # Windows
-```
-
-### 3. Install the dependencies
-
-```
-pip install python-dotenv pyinaturalist exifread
-```
-
-### 4. Configure your environment
+### 2. Configure your environment
 
 - Copy the `.env.dist` file to `.env`:
 ```
@@ -71,6 +56,34 @@ PHOTO_ROOT/
 ```
 - Each subfolder is uploaded as one observation.
 - Folder names are used to guess the species. (If no taxon match is found, the folder name will be used as a fallback)
+
+### 3. Set up a virtual environment
+
+#### On macOS / Linux:
+```
+# Create a virtual environment named 'venv'
+python3 -m venv venv
+
+# Activate the virtual environment
+source venv/bin/activate
+```
+#### On windows
+```
+# Create a virtual environment named 'venv'
+python -m venv venv
+
+# Activate the virtual environment
+venv\Scripts\activate
+```
+Once activated, your terminal should show (venv) at the beginning of the prompt. This means the virtual environment is active.
+
+⚠ **Complete the following steps in your virtual environment** - this helps avoid package conflicts and system-wide issues.
+
+### 4. Install the dependencies
+
+```
+pip install python-dotenv pyinaturalist exifread
+```
 
 ### 5. Running the Script
 
