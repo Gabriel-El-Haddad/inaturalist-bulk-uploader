@@ -53,9 +53,9 @@ pip install python-dotenv pyinaturalist exifread
 ```
 cp .env.dist .env
 ```
-- Edit .env and provide your values:
+- Edit .env and provide your values (use a valid [API token](https://www.inaturalist.org/users/api_token)):
 ```
-INAT_ACCESS_TOKEN=your_access_token_here (use a valid [API token](https://www.inaturalist.org/users/api_token))
+INAT_ACCESS_TOKEN=your_access_token_here
 PHOTO_ROOT=/full/path/to/folder/of/folders (With the desired folder structure - see below)
 ```
 #### 📁 Folder Structure
@@ -70,7 +70,7 @@ PHOTO_ROOT/
 │   └── milkweed2.png
 ```
 - Each subfolder is uploaded as one observation.
-- Folder names are used to guess the species. (If no guess is found, fallback on folder name)
+- Folder names are used to guess the species. (If no taxon match is found, the folder name will be used as a fallback)
 
 ### 5. Running the Script
 
