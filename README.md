@@ -1,6 +1,6 @@
 # 🦋 iNaturalist Bulk Uploader
 
-A simple Python tool (utilizing [pyinaturalist](https://github.com/pyinat/pyinaturalist)) to upload folders of photos to [iNaturalist](https://www.inaturalist.org/) as individual observations — automatically assigning species names, timestamps, and attaching media.
+A simple Python tool (utilizing [pyinaturalist](https://github.com/pyinat/pyinaturalist)) to upload folders of photos to [iNaturalist](https://www.inaturalist.org/) as individual observations, automatically assigning species names, timestamps, and attaching media.
 
 Each folder is treated as one observation, using the folder name as the taxon name.
 
