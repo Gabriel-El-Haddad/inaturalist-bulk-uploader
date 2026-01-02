@@ -97,8 +97,8 @@ def upload_folder_as_observation(folder_path):
     lat, lon = get_first_photo_location_fast(photos, max_scan=5)
 
     try:
-        if taxon_name:
-            print(f"🔎 Using species_guess: {taxon_name}")
+        if taxon_id:
+            print(f"✅ Using taxon_id={taxon_id} (not just species_guess)")
         else:
             print(f"⚠️  No match found, using folder name as species_guess: {folder_name}")
 
@@ -107,15 +107,27 @@ def upload_folder_as_observation(folder_path):
         else:
             print("⚠️  No GPS EXIF found in first scanned photos (location will be blank)")
 
-        create_observation(
-            access_token=access_token,
-            photos=photos,
-            observed_on_string=observed_on,
-            description=f"Uploaded from folder: {folder_name}",
-            species_guess=taxon_name or folder_name,
-            latitude=lat,
-            longitude=lon,
-        )
+        # If we have a match, set a real taxon assignment (not just a placeholder guess)
+        if taxon_id:
+            create_observation(
+                access_token=access_token,
+                photos=photos,
+                observed_on_string=observed_on,
+                description=f"Uploaded from folder: {folder_name}",
+                taxon_id=taxon_id,
+                latitude=lat,
+                longitude=lon,
+            )
+        else:
+            create_observation(
+                access_token=access_token,
+                photos=photos,
+                observed_on_string=observed_on,
+                description=f"Uploaded from folder: {folder_name}",
+                species_guess=folder_name,
+                latitude=lat,
+                longitude=lon,
+            )
 
         print(f"✅ Uploaded {folder_name}")
 
